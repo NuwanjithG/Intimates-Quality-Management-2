@@ -2,9 +2,12 @@
 session_start(); // Initialize the session
 
 // Include the database connection file
-include 'connect.php';
+require_once 'connect.php';
 
-// Assuming $user_name and $password are set from user input
+// Enable error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $user_name = $_POST['username'];
@@ -17,15 +20,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the statement
     $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Check if user exists
-    if (count($result) > 0) {
-        // Store username in session variable
+    if ($result) {
+        // Store username and name in session variables
         $_SESSION['username'] = $user_name;
+        $_SESSION['name'] = $result['Name'];
+
+        // Convert binary data to Base64
+        $profilePicture = base64_encode($result['ProfilePicture']);
+        $_SESSION['profile_picture'] = $profilePicture;
 
         // Redirect to main menu page upon successful login
-        header("Location: Main_Menu.php");
+        header("Location: Main_Menu.html");
         exit(); // Ensure no further code is executed
     } else {
         echo "<p>Invalid username or password.</p>";

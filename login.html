@@ -5,11 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Intimates Quality Management</title>
   <link rel="stylesheet" href="../CSS/login.css">
-  
+  <script src="loading_screen.js" defer></script>
 </head>
 <body>
+  <div class="loading-screen" id="loadingScreen">
+    <div class="spinner"></div>
+  </div>
+
   <div class="wrapper">
-    <form action="login.php" method="post">
+    <form action="login.php" method="post" id="loginForm">
       <h2>Intimates Quality Management</h2>
       <div class="input-field">
         <input type="text" name="username" required>
