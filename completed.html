@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline Complete</title>
+    <link rel="stylesheet" href="./CSS/completed.css">
+    <script src="completed.js" defer></script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="home-icon">
+            <a href="../HTML/Main_Menu.html">
+                <img src="/03_InLine/Images/Home.png" alt="Home Icon">
+            </a>
+        </div>
+        <h1 class="header-title">Inline Audit</h1>
+        <div class="upper-right-image">
+            <img src="/03_InLine/Images/Intimates Logo.jpg" alt="Intimates Icon">
+        </div>
+    </div>
+    <div class="summary-container">
+        <div class="summary-title">Audit Summary</div>
+        <div class="vertical-line"></div>
+        <div class="summary">
+            <div class="group">
+                <div class="summary-title">Total Audits</div>
+                <div class="summary-data">28</div>
+            </div>
+            <div class="group">
+                <div class="summary-title">Audit Pass</div>
+                <div class="summary-data">12</div>
+            </div>
+            <div class="group">
+                <div class="summary-title">Audit Fail</div>
+                <div class="summary-data">8</div>
+            </div>
+            <div class="group">
+                <div class="summary-title">Pass Rate</div>
+                <div class="summary-data">28.57%</div>
+            </div>
+            <div class="vertical-line"></div>
+            <div class="group">
+                <div class="summary-title">Sample QTY</div>
+                <div class="summary-data">500</div>
+            </div>
+            <div class="group">
+                <div class="summary-title">Defect QTY</div>
+                <div class="summary-data">12</div>
+            </div>
+            <div class="group">
+                <div class="summary-title">Pass Rate</div>
+                <div class="summary-data">2.4%</div>
+            </div>
+        </div>
+    </div>
+    <div class="filters">
+        <label for="date">Date: </label>
+        <input type="date" id="currentDate">
+        <label for="user">User</label>
+        <select id="user">
+            <option value="jasildaj">Test</option>
+        </select>
+        <label for="customer">Customer</label>
+        <select id="customer">
+            <option value="TOMMY">TOMMY</option>
+            <option value="MARKS">MARKS</option>
+        </select>
+        <label for="module">Sales Order</label>
+        <input type="text" id="module" placeholder="Enter Module">
+        <label for="Line-Item">Line Item</label>
+        <input type="text" id="sales-order" placeholder="Enter Sales Order">
+        <button class="green-button">Search</button>
+        <button class="reset-button">Reset</button>
+    </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>CCA Name</th>
+                    <th>Style</th>
+                    <th>Customer</th>
+                    <th>Sales Order</th>
+                    <th>Line Item</th>
+                    <th>Module</th>
+                    <th>Sample QTY</th>
+                    <th>Defect QTY</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (count($results) > 0): ?>
+                    <?php foreach ($results as $row): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($row['Username']); ?></td>
+                            <td><?php echo htmlspecialchars($row['Style']); ?></td>
+                            <td><?php echo htmlspecialchars($row['Customer']); ?></td>
+                            <td><?php echo htmlspecialchars($row['Sales_Order']); ?></td>
+                            <td><?php echo htmlspecialchars($row['Line_Item']); ?></td>
+                            <td><?php echo htmlspecialchars($row['Work_Center']); ?></td>
+                            <td><?php echo htmlspecialchars($row['Sample_Quantity']); ?></td>
+                            <td><?php echo htmlspecialchars($row['Defect_Quantity']); ?></td>
+                            <td><?php echo htmlspecialchars($row['Audit_Status']); ?></td>
+                            <td><?php echo htmlspecialchars($row['Date']); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="10">No data found</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+    <div class="add-icon">
+        <a href="../In Line_Pending/In Line_Pending.html">
+            <img src="/03_InLine/Images/Add.png" alt="Add Icon">
+        </a>
+    </div>
+</div>
+</body>
+</html>

@@ -11,12 +11,13 @@ try {
 
     // Set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // If connected successfully, display a message
-    echo "<p style='color: green;'>Connected successfully</p>";
+    
+    // Connection successful message
+    // Remove or comment out the line below in production
+    //echo "<p style='color: green;'>Connected successfully</p>";
 
 } catch (PDOException $e) {
     // If there is an error, display the error message
-    echo "<p style='color: red;'>Connection failed: " . $e->getMessage() . "</p>";
+    die("<p style='color: red;'>Connection failed: " . $e->getMessage() . "</p>");
 }
 ?>

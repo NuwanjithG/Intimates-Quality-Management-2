@@ -1,0 +1,334 @@
+/* Reset default browser styles */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+ 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+ 
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #121212;
+    background-image: url( ../Images/Background.png);
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+}
+ 
+body::after {
+
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+    z-index: -1;
+    pointer-events: none;
+    
+}
+ 
+.container {
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+}
+ 
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Add space between elements */
+    min-height: 10vh;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(1px);
+    border: 2px solid #555; /* Dark ash color border */
+    background-color: rgba(31, 31, 31, 0.1); /* Black background color with transparency */
+    color: #fcf7ff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+
+}
+ 
+.home-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Ensure width matches image size */
+    height: 50px; /* Ensure height matches image size */
+    overflow: hidden; /* Clip any overflowing content */
+    z-index: 3; /* Ensure the highest z-index */
+}
+ 
+.home-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
+}
+ 
+.header-title {
+    flex: 1;
+    text-align: center;
+}
+ 
+.upper-right-image {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+ 
+.upper-right-image img {
+    max-width: 150px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-right: 0.5px;
+}
+ 
+.summary-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Add space between elements */
+    min-height: 10vh;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(1px);
+    border: 2px solid #555; /* Dark ash color border */
+    background-color: rgba(31, 31, 31, 0.1); /* Black background color with transparency */
+    color: #fcf7ff;
+    padding: 8px; /* Decrease padding */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+ 
+}
+
+.summary-title {
+    font-weight: bold;
+    color: #f3f2f3;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+ 
+.summary {
+    display: flex;
+    color: #ffffff;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 2;
+}
+ 
+.group {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    gap: 5px; /* Space between label and number */
+}
+ 
+.group div {
+    text-align: center; /* Center text within each group */
+}
+ 
+.vertical-line {
+    width: 2px;
+    background-color: #555; /* Dark ash color */
+    height: 45px; /* Adjust the height as needed */
+    margin: 0 20px;
+}
+ 
+.filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Add space between elements */
+    min-height: 10vh;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(1px);
+    border: 2px solid #555; /* Dark ash color border */
+    background-color: rgba(31, 31, 31, 0.1); /* Black background color with transparency */
+    color: #fcf7ff;
+    padding: 8px; /* Decrease padding */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+
+}
+ 
+.filters label {
+    margin-right: 5px;
+}
+ 
+.filters input, .filters select {
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    border: none;
+}
+ 
+.reset-button {
+    border: 2px solid #ff0000; /* Red border */
+    background-color: #ff0000;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+ 
+.green-button {
+    border: 2px solid #006400; /* Green border */
+    background-color: #006400;
+    color: #fff; /* Green text color */
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+ 
+.table-container {
+    overflow-x: auto;
+}
+ 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 2px solid #555; /* Dark ash color border */
+}
+ 
+thead {
+    background-color: #333;; /* Black background for header */
+    /* color: #9b13e4; */
+}
+ 
+th {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #555; /* Dark ash color borders */
+    color: #ffffff; /* Black text color */
+}
+ 
+td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #1f1f1f; /* Dark ash color borders */
+    color: #000; /* Black text color */
+}
+ 
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+ 
+tbody tr {
+    cursor: pointer;
+}
+ 
+.add-icon {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 50%;
+    padding: 10px;
+}
+ 
+.add-icon img {
+    width: 40px;
+    height: 40px;
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+ 
+    .home-icon {
+        margin-bottom: 10px;
+    }
+ 
+    .summary {
+        flex-direction: column;
+        align-items: center;
+    }
+ 
+    .filters {
+        flex-direction: column;
+    }
+ 
+    .filters input, .filters select {
+        margin-bottom: 10px;
+    }
+ 
+    .filters button {
+        align-self: center;
+    }
+}
+ 
+@media (max-width: 576px) {
+    .header {
+        padding: 20px;
+    }
+ 
+    .home-icon img {
+        width: 30px;
+        height: 30px;
+    }
+ 
+    .summary div {
+        font-size: 14px;
+    }
+ 
+    .filters {
+        padding: 20px;
+    }
+ 
+    .filters input, .filters select {
+        width: 100%;
+    }
+ 
+    .table-container {
+        width: 100%;
+        overflow-x: scroll;
+    }
+ 
+    th, td {
+        padding: 5px;
+    }
+}
+ 
+@media (max-width: 480px) {
+    .add-icon {
+        bottom: 10px;
+        right: 10px;
+    }
+ 
+    .add-icon img {
+        width: 30px;
+        height: 30px;
+    }
+}
+ 
+/* Status-based row colors */
+.status-pending {
+    background-color: rgb(220, 233, 43) !important; /* Yellow background for pending status */
+}
+ 
+.status-fail {
+    background-color: rgb(229, 33, 33) !important; /* Red background for fail status */
+    color: white !important; /* White text color for better readability */
+}
+ 
+.status-pass {
+    background-color: rgb(18, 201, 18) !important; /* Green background for pass status */
+    color: white !important; /* White text color for better readability */
+}

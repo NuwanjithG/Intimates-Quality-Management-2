@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['profile_picture'] = $profilePicture;
 
         // Redirect to main menu page upon successful login
-        header("Location: Main_Menu.html");
+        header("Location: Main_Menu.php");
         exit(); // Ensure no further code is executed
     } else {
         echo "<p>Invalid username or password.</p>";
